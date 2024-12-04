@@ -42,13 +42,12 @@ public class ApplicationRunner {
                return;
            }
 
-           List<Student> result = students.stream()
+           Optional<Student> name = students.stream()
                                         .filter(student -> student.getName().toLowerCase().startsWith(inputNameStudent))
                                         .sorted()
-                                        .findFirst()
-                                        .stream().toList();
+                                        .findFirst();
 
-            System.out.println(result);
+            System.out.println(name);
         }catch (Exception e){
             System.out.println("General exception input: " + e.getMessage());
         }
